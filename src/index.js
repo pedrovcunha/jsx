@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function getButtonText() {
+    return 'Click on Me';
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const App = () => {
+    const buttonText = { text: 'Click Me'};
+    const buttonStyle = {backgroundColor: 'blue', color: 'white'}
+    return <div>
+        <label className="label" for="name">Enter name:</label>
+        <input id="name" type="text"/>
+        {/* {{}} First curly braces indicates we want to send a javastript variable. The second, The javascript object itself */}
+        {/* conventions - always use "" anytime we are using , single quotes for any non-jsx properties*/}
+        <button style={buttonStyle}>{buttonText.text}</button>
+    </div>
+}
+
+ReactDOM.render(<App/>, document.querySelector('#root'));
